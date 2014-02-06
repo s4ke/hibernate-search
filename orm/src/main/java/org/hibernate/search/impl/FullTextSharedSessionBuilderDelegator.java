@@ -24,7 +24,6 @@ import java.sql.Connection;
 
 import org.hibernate.ConnectionReleaseMode;
 import org.hibernate.Interceptor;
-import org.hibernate.SessionEventListener;
 import org.hibernate.SharedSessionBuilder;
 import org.hibernate.search.FullTextSession;
 import org.hibernate.search.FullTextSharedSessionBuilder;
@@ -136,15 +135,4 @@ public class FullTextSharedSessionBuilderDelegator implements FullTextSharedSess
 		return this;
 	}
 
-	@Override
-	public FullTextSharedSessionBuilder clearEventListeners() {
-		builder.clearEventListeners();
-		return this;
-	}
-
-	@Override
-	public FullTextSharedSessionBuilder eventListeners(SessionEventListener... listeners) {
-		builder.eventListeners( listeners );
-		return this;
-	}
 }
