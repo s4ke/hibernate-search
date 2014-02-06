@@ -1,7 +1,7 @@
 # Repository specific GIT options
 
 # Set default handling of line terminators for all non explicitly listed file types:
-* text=auto
+* text eol=lf
 
 # Force LF as internal repository format for all following files;
 # this overrides user settings to enforce the *right format* :
