@@ -13,6 +13,7 @@ import java.io.IOException;
 import org.apache.lucene.index.CorruptIndexException;
 import org.hibernate.annotations.common.reflection.XClass;
 import org.hibernate.annotations.common.reflection.XMember;
+import org.hibernate.search.backend.DeletionQuery;
 import org.hibernate.search.backend.spi.WorkType;
 import org.hibernate.search.bridge.FieldBridge;
 import org.hibernate.search.cfg.Environment;
@@ -746,4 +747,8 @@ public interface Log extends BasicLogger {
 
 	@Message(id = 251, value = "Unable to set filter parameter '%2$s' on filter class %1$s")
 	SearchException unableToSetFilterParameter(Class<?> filterClass, String parameterName, @Cause Exception e);
+
+	@Message(id = 252, value = "Unable to delete all %s matching Query: %s")
+	SearchException unableToDeleteByQuery(Class<?> entityClass, DeletionQuery deletionQuery, @Cause Exception e );
+
 }
