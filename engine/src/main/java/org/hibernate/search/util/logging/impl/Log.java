@@ -931,4 +931,12 @@ public interface Log extends BasicLogger {
 	@LogMessage(level = Level.DEBUG)
 	@Message(id = 304, value = "Closing index writer for IndexManager '%1$s'")
 	void closingIndexWriter(String indexName);
+
+	@LogMessage(level = Level.WARN)
+	@Message(id = 305, value = "unknown eventType-id found during index updating: %d")
+	void unknownEventTypeFoundDuringIndexUpdating(int eventType);
+
+	@LogMessage(level = Level.WARN)
+	@Message(id = 306, value = "class '%1$s' not found in any index during index updating")
+	void entityClassNotFoundInAnyIndexIndexUpdating( Class<?> entityClass );
 }
