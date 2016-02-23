@@ -6,10 +6,6 @@
  */
 package org.hibernate.search.jpa.impl;
 
-import java.io.Serializable;
-import java.util.List;
-import java.util.Map;
-
 import javax.persistence.EntityGraph;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -24,6 +20,9 @@ import javax.persistence.criteria.CriteriaDelete;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.CriteriaUpdate;
 import javax.persistence.metamodel.Metamodel;
+import java.io.Serializable;
+import java.util.List;
+import java.util.Map;
 
 import org.hibernate.Session;
 import org.hibernate.search.FullTextSession;
