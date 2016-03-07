@@ -41,7 +41,6 @@ public class SQLJPAAsyncUpdateSourceProvider implements AsyncUpdateSourceProvide
 		this.triggerCreateStrategy = triggerCreateStrategy;
 	}
 
-
 	@Override
 	public AsyncUpdateSource getUpdateSource(
 			long delay,

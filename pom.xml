@@ -47,6 +47,14 @@
         <module>genericjpa/async-updates</module>
 
         <module>orm-async</module>
+
+        <module>genericjpa/standalone</module>
+
+        <module>genericjpa/jpa</module>
+        <module>genericjpa/ejb</module>
+        <module>genericjpa/integrationtest/mysql</module>
+        <module>genericjpa/integrationtest/postgres</module>
+        <module>genericjpa/integrationtest/glassfish</module>
         <!-- TODO: integration tests for TomEE and Glassfish -->
     </modules>
 
