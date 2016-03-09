@@ -215,7 +215,7 @@
 
         <puppycrawl.checkstyle.version>6.16</puppycrawl.checkstyle.version>
         <hibernate.search.genericjpa.integrationtest.skip>true</hibernate.search.genericjpa.integrationtest.skip>
-
+        <hibernate.search.orm-async.test.skip>true</hibernate.search.orm-async.test.skip>
     </properties>
 
     <dependencyManagement>
@@ -1455,7 +1455,7 @@
                 <jdbc.user>searctru</jdbc.user>
                 <jdbc.pass>searctru</jdbc.pass>
                 <jdbc.isolation />
-            </properties>
+                </properties>
         </profile>
 
         <!-- The PostgreSQL test environment on ci.hibernate.org (v. 9.3.9)-->
@@ -1475,6 +1475,8 @@
                 <jdbc.user>hibernate_user</jdbc.user>
                 <jdbc.pass>hibernate_password</jdbc.pass>
                 <jdbc.isolation />
+                <hibernate.search.orm-async.test.skip>false</hibernate.search.orm-async.test.skip>
+                <hibernate.search.trigger.source>org.hibernate.search.db.events.triggers.PostgreSQLTriggerSQLStringSource</hibernate.search.trigger.source>
             </properties>
         </profile>
 
@@ -1496,6 +1498,8 @@
                 <jdbc.user>hibernate_user</jdbc.user>
                 <jdbc.pass>hibernate_password</jdbc.pass>
                 <jdbc.isolation />
+                <hibernate.search.orm-async.test.skip>false</hibernate.search.orm-async.test.skip>
+                <hibernate.search.trigger.source>org.hibernate.search.db.events.triggers.MySQLTriggerSQLStringSource</hibernate.search.trigger.source>
             </properties>
         </profile>
 
