@@ -170,6 +170,8 @@ public final class Setup {
 					throw new SearchException( "unrecognized " + Constants.TRIGGER_CREATION_STRATEGY_KEY + " specified: " + createTriggerStrategy );
 				}
 
+				//FIXME: use the ORMEventModelParser here
+
 				asyncUpdateSourceProvider = new SQLJPAAsyncUpdateSourceProvider(
 						(TriggerSQLStringSource) triggerSourceClass.newInstance(),
 						entities, createTriggerStrategy
