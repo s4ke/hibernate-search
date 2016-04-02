@@ -170,7 +170,7 @@ public final class Setup {
 					throw new SearchException( "unrecognized " + Constants.TRIGGER_CREATION_STRATEGY_KEY + " specified: " + createTriggerStrategy );
 				}
 
-				//FIXME: use the ORMEventModelParser here
+				//FIXME: use the ORMEventModelParser here if Hibernate ORM is on the classpath
 
 				asyncUpdateSourceProvider = new SQLJPAAsyncUpdateSourceProvider(
 						(TriggerSQLStringSource) triggerSourceClass.newInstance(),
