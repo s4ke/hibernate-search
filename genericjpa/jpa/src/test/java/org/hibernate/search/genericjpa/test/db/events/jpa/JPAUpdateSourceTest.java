@@ -127,7 +127,7 @@ public class JPAUpdateSourceTest {
 									public void updateEvent(List<UpdateEventInfo> updateInfos) {
 										for ( UpdateEventInfo updateInfo : updateInfos ) {
 											Object id = updateInfo.getId();
-											int eventType = updateInfo.getEventType();
+											EventType eventType = updateInfo.getEventType();
 											if ( id.equals( 2 ) && Place.class.equals( updateInfo.getEntityClass() ) && EventType.INSERT == eventType ) {
 												gotEvent[0] = true;
 											}

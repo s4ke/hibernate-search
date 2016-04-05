@@ -188,7 +188,7 @@ public abstract class DatabaseIntegrationTest {
 			try {
 				//UNSETUP
 				for ( EventModelInfo info : infos ) {
-					for ( int eventType : EventType.values() ) {
+					for ( EventType eventType : EventType.values() ) {
 						String[] triggerDropStrings = triggerSource.getTriggerDropCode( info, eventType );
 						for ( String triggerDropString : triggerDropStrings ) {
 							System.out.println( triggerDropString );
@@ -251,7 +251,7 @@ public abstract class DatabaseIntegrationTest {
 						}
 					}
 
-					for ( int eventType : EventType.values() ) {
+					for ( EventType eventType : EventType.values() ) {
 						String[] triggerCreationStrings = triggerSource.getTriggerCreationCode( info, eventType );
 						for ( String triggerCreationString : triggerCreationStrings ) {
 							System.out.println( triggerCreationString );

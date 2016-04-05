@@ -135,7 +135,7 @@ public class MultiQueryAccessTest extends DatabaseIntegrationTest {
 			em = this.emf.createEntityManager();
 			EntityTransaction tx = em.getTransaction();
 
-			List<Integer> eventOrder = new ArrayList<>(
+			List<EventType> eventOrder = new ArrayList<>(
 					Arrays.asList(
 							EventType.UPDATE,
 							EventType.INSERT

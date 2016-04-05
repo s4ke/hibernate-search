@@ -123,7 +123,7 @@ public class HibernateUpdateSource implements SynchronizedUpdateSource, PostDele
 			// but we should not move the responsibility to figure out the proper id to the engine
 			boolean identifierRollbackEnabled = event.getSession()
 					.getFactory()
-					.getSettings()
+					.getSessionFactoryOptions()
 					.isIdentifierRollbackEnabled();
 			processWork(
 					entity,
@@ -246,7 +246,7 @@ public class HibernateUpdateSource implements SynchronizedUpdateSource, PostDele
 		extendedIntegrator.getWorker().performWork( work, transactionContext );
 	}
 
-	private static int workTypeToEventType(WorkType workType) {
+	private static EventType workTypeToEventType(WorkType workType) {
 		switch ( workType ) {
 			case ADD:
 			case INDEX:

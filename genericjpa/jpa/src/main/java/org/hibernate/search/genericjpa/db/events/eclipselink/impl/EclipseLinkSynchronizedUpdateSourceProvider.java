@@ -8,7 +8,6 @@ package org.hibernate.search.genericjpa.db.events.eclipselink.impl;
 
 import javax.persistence.EntityManagerFactory;
 import javax.transaction.TransactionManager;
-import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 import java.util.Set;

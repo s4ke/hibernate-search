@@ -20,6 +20,7 @@ import org.hibernate.search.db.events.impl.AnnotationEventModelParser;
 import org.hibernate.search.db.events.impl.AsyncUpdateSourceProvider;
 import org.hibernate.search.db.events.impl.EventModelParser;
 import org.hibernate.search.db.events.jpa.impl.SQLJPAAsyncUpdateSourceProvider;
+import org.hibernate.search.db.events.jpa.impl.TriggerCreationStrategy;
 import org.hibernate.search.db.events.triggers.TriggerSQLStringSource;
 import org.hibernate.search.exception.SearchException;
 import org.hibernate.search.genericjpa.annotations.CustomUpdateEntityProvider;
@@ -39,9 +40,7 @@ import static org.hibernate.search.genericjpa.Constants.SEARCH_FACTORY_TYPE_DEFA
 import static org.hibernate.search.genericjpa.Constants.SEARCH_FACTORY_TYPE_KEY;
 import static org.hibernate.search.genericjpa.Constants.TRANSACTION_MANAGER_PROVIDER_DEFAULT_VALUE;
 import static org.hibernate.search.genericjpa.Constants.TRANSACTION_MANAGER_PROVIDER_KEY;
-import static org.hibernate.search.genericjpa.Constants.TRIGGER_CREATION_STRATEGY_CREATE;
 import static org.hibernate.search.genericjpa.Constants.TRIGGER_CREATION_STRATEGY_DEFAULT_VALUE;
-import static org.hibernate.search.genericjpa.Constants.TRIGGER_CREATION_STRATEGY_DROP_CREATE;
 import static org.hibernate.search.genericjpa.Constants.TRIGGER_CREATION_STRATEGY_KEY;
 import static org.hibernate.search.genericjpa.Constants.TRIGGER_SOURCE_KEY;
 import static org.hibernate.search.genericjpa.Constants.UPDATE_DELAY_DEFAULT_VALUE;
@@ -161,14 +160,13 @@ public final class Setup {
 							"class specified in " + TRIGGER_SOURCE_KEY + " could not be found: " + triggerSource
 					);
 				}
-				String createTriggerStrategy = (String) properties.getOrDefault(
-						TRIGGER_CREATION_STRATEGY_KEY,
-						TRIGGER_CREATION_STRATEGY_DEFAULT_VALUE
+
+				TriggerCreationStrategy createTriggerStrategy = TriggerCreationStrategy.fromString(
+						(String) properties.getOrDefault(
+								TRIGGER_CREATION_STRATEGY_KEY,
+								TRIGGER_CREATION_STRATEGY_DEFAULT_VALUE
+						)
 				);
-				if ( !TRIGGER_CREATION_STRATEGY_CREATE.equals( createTriggerStrategy ) && !TRIGGER_CREATION_STRATEGY_DROP_CREATE
-						.equals( createTriggerStrategy ) ) {
-					throw new SearchException( "unrecognized " + Constants.TRIGGER_CREATION_STRATEGY_KEY + " specified: " + createTriggerStrategy );
-				}
 
 				//FIXME: use the ORMEventModelParser here if Hibernate ORM is on the classpath
 

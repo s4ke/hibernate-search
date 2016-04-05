@@ -38,7 +38,7 @@ public class Constants {
 	public static final String TRIGGER_CREATION_STRATEGY_KEY = AsyncUpdateConstants.TRIGGER_CREATION_STRATEGY_KEY;
 	public static final String TRIGGER_CREATION_STRATEGY_CREATE = AsyncUpdateConstants.TRIGGER_CREATION_STRATEGY_CREATE;
 	public static final String TRIGGER_CREATION_STRATEGY_DROP_CREATE = AsyncUpdateConstants.TRIGGER_CREATION_STRATEGY_DROP_CREATE;
-	public static final String TRIGGER_CREATION_STRATEGY_DONT_CREATE = AsyncUpdateConstants.TRIGGER_CREATION_STRATEGY_DONT_CREATE;
+	public static final String TRIGGER_CREATION_STRATEGY_NONE = AsyncUpdateConstants.TRIGGER_CREATION_STRATEGY_NONE;
 	public static final String TRIGGER_CREATION_STRATEGY_DEFAULT_VALUE = AsyncUpdateConstants.TRIGGER_CREATION_STRATEGY_DEFAULT_VALUE;
 
 	private Constants() {

@@ -115,7 +115,7 @@ public class EclipseLinkUpdateSource implements SynchronizedUpdateSource {
 		return null;
 	}
 
-	private void enlistWork(Session session, Class<?> entityClass, Object entity, Object id, int eventType) {
+	private void enlistWork(Session session, Class<?> entityClass, Object entity, Object id, EventType eventType) {
 		Transaction tx = EclipseLinkUpdateSource.this.transactionsPerSession.get( session );
 		if ( tx == null ) {
 			tx = new Transaction();

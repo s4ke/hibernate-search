@@ -33,6 +33,7 @@ import org.hibernate.search.db.events.UpdateConsumer;
 import org.hibernate.search.db.events.impl.AnnotationEventModelParser;
 import org.hibernate.search.db.events.impl.AsyncUpdateSource;
 import org.hibernate.search.db.events.impl.AsyncUpdateSourceProvider;
+import org.hibernate.search.db.events.impl.EventModelInfo;
 import org.hibernate.search.db.events.impl.EventModelParser;
 import org.hibernate.search.db.events.index.impl.IndexUpdater;
 import org.hibernate.search.db.util.impl.JPAEntityManagerFactoryWrapper;
@@ -52,9 +53,9 @@ import org.hibernate.search.genericjpa.events.impl.SynchronizedUpdateSource;
 import org.hibernate.search.genericjpa.factory.StandaloneSearchConfiguration;
 import org.hibernate.search.genericjpa.factory.StandaloneSearchFactory;
 import org.hibernate.search.genericjpa.factory.impl.StandaloneSearchFactoryImpl;
+import org.hibernate.search.genericjpa.metadata.impl.ExtendedTypeMetadata;
 import org.hibernate.search.genericjpa.metadata.impl.MetadataExtender;
 import org.hibernate.search.genericjpa.metadata.impl.MetadataUtil;
-import org.hibernate.search.genericjpa.metadata.impl.ExtendedTypeMetadata;
 import org.hibernate.search.genericjpa.query.HSearchQuery;
 import org.hibernate.search.indexes.IndexReaderAccessor;
 import org.hibernate.search.jpa.FullTextEntityManager;
@@ -191,13 +192,15 @@ public final class JPASearchFactoryAdapter
 				this.customUpdateEntityProviders
 		);
 
+		List<EventModelInfo> eventModelInfos = this.eventModelParser.parse( new ArrayList<>( this.indexRelevantEntities ) );
+
 		this.asyncUpdateSource = this.asyncUpdateSourceProvider.getUpdateSource(
 				this.updateDelay,
 				TimeUnit.MILLISECONDS,
 				this.batchSizeForUpdates,
 				this.properties,
 				new JPAEntityManagerFactoryWrapper( this.emf, this.transactionManager ),
-				this.eventModelParser
+				eventModelInfos
 		);
 		if ( this.asyncUpdateSource != null ) {
 			this.indexUpdater = new IndexUpdater(
